@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import CryptoModal from '../components/CryptoModal';
-import YahooFinanceValidator from '../components/YahooFinanceValidator';
 import './Dashboard.css';
 
 function Dashboard() {
@@ -53,7 +52,7 @@ function Dashboard() {
       if (volatility > 5) {
         newInsights.push({
           type: 'warning',
-          icon: '⚠️',
+          icon: '!',
           title: `High Volatility: ${crypto.name}`,
           description: `${crypto.name} has moved ${crypto.price_change_percentage_24h.toFixed(2)}% in 24h`,
         });
@@ -67,7 +66,7 @@ function Dashboard() {
       if (change24h > 0 && change7d < -5) {
         newInsights.push({
           type: 'info',
-          icon: '🔄',
+          icon: '↻',
           title: `Trend Reversal: ${crypto.name}`,
           description: `Up ${change24h.toFixed(2)}% today but down ${Math.abs(change7d).toFixed(2)}% over 7 days`,
         });
@@ -108,7 +107,7 @@ function Dashboard() {
     return (
       <div className="dashboard-container">
         <div className="error">
-          <h2>⚠️ Error Loading Data</h2>
+          <h2>Error Loading Data</h2>
           <p>{error}</p>
           <button onClick={fetchCryptoData} className="retry-btn">
             Retry
@@ -126,14 +125,14 @@ function Dashboard() {
           <p>Real-time market data in Indian Rupees (INR)</p>
         </div>
         <button onClick={fetchCryptoData} className="refresh-btn">
-          <span>🔄</span>
+          <span>↻</span>
           <span>Refresh Data</span>
         </button>
       </div>
 
       {insights.length > 0 && (
         <div className="insights-section">
-          <h2>🧠 Market Insights</h2>
+          <h2>Market Insights</h2>
           <div className="insights-grid">
             {insights.map((insight, index) => (
               <div key={index} className={`insight-card ${insight.type}`}>
@@ -200,7 +199,7 @@ function Dashboard() {
         ))}
       </div>
 
-      <YahooFinanceValidator />
+
 
       {selectedCrypto && (
         <CryptoModal

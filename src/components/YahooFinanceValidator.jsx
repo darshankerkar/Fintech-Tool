@@ -82,15 +82,15 @@ function YahooFinanceValidator() {
     if (trendDifference > 2) {
       trendStatus = 'Bullish';
       trendColor = '#4ade80';
-      trendIcon = '📈';
+      trendIcon = '↑';
     } else if (trendDifference < -2) {
       trendStatus = 'Bearish';
       trendColor = '#f87171';
-      trendIcon = '📉';
+      trendIcon = '↓';
     } else {
       trendStatus = 'Neutral';
       trendColor = '#94a3b8';
-      trendIcon = '➡️';
+      trendIcon = '→';
     }
 
 
@@ -145,7 +145,7 @@ function YahooFinanceValidator() {
     <div className="yahoo-validator-container">
       <div className="validator-header">
         <h2 className="validator-title">
-          <span className="title-icon">📊</span>
+          <span className="title-icon">↗</span>
           Yahoo Finance Trend Validator
         </h2>
         <p className="validator-subtitle">
@@ -181,7 +181,7 @@ function YahooFinanceValidator() {
                 </>
               ) : (
                 <>
-                  <span>🔍</span>
+                  <span>⌕</span>
                   <span>Fetch Yahoo Data</span>
                 </>
               )}
@@ -206,7 +206,7 @@ function YahooFinanceValidator() {
 
       {error && (
         <div className="error-message">
-          <span className="error-icon">⚠️</span>
+          <span className="error-icon">!</span>
           <span>{error}</span>
         </div>
       )}
@@ -338,7 +338,7 @@ function YahooFinanceValidator() {
           </div>
 
           <div className="data-info">
-            <span className="info-icon">ℹ️</span>
+            <span className="info-icon">i</span>
             <span>
               Analysis based on {trendAnalysis.dataPoints} data points from Yahoo Finance API
             </span>

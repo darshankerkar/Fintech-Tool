@@ -26,6 +26,12 @@ function Navbar() {
           >
             Dashboard
           </Link>
+          <Link 
+            to="/finance-analyzer" 
+            className={`navbar-link ${location.pathname === '/finance-analyzer' ? 'active' : ''}`}
+          >
+            Finance Analyzer
+          </Link>
         </div>
 
         <div className="navbar-actions">
